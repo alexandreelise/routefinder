@@ -1,7 +1,3 @@
-.phpunit.result.cache
-.phpunit.cache
-vendor/
-
 # Smoke Tests done for all generated Joomla Web Services Api Endpoints
 !/tests/
 
@@ -21,3 +17,6 @@ vendor/
 !/index.php
 
 api-config.ini
+.phpunit.result.cache
+.phpunit.cache
+vendor/

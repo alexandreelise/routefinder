@@ -1,0 +1,13 @@
+.phpunit.result.cache
+.phpunit.cache
+vendor/
+
+# Where the latest archive will be downloaded
+!tmp/
+tmp/*
+
+# Extracted source code from latest Joomla! release archive file at the moment its 4.2.2
+!extracted/
+extracted/*
+
+api-config.ini

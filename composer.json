@@ -36,8 +36,22 @@
   "scripts": {
     "routefinder-download-stable": "if [ -f ./tmp/${APP_STABLE}.zip ]; then echo \"Already downloaded\" && exit 0; else php -r \"file_put_contents('./tmp/${APP_STABLE}.zip', file_get_contents('https://downloads.joomla.org/fr/cms/joomla4/${APP_STABLE}/Joomla_${APP_STABLE}-Stable-Full_Package.zip'));\" && echo \"Finished download\"; fi",
     "routefinder-download-dev": "if [ -f ./tmp/${APP_REF_TAG}.zip ]; then echo \"Already downloaded\" && exit 0; else php -r \"file_put_contents('./tmp/${APP_REF_TAG}.zip', file_get_contents('https://github.com/joomla/joomla-cms/archive/refs/tags/${APP_REF_TAG}.zip'));\" && echo \"Finished download\"; fi",
-    "routefinder-extract-stable": "cd ./tmp && unzip -o ${APP_STABLE}.zip -d ../extracted && echo \"Extracted\"",
-    "routefinder-extract-dev": "cd ./tmp && unzip -o ${APP_REF_TAG}.zip -d ../extracted && echo \"Extracted\"",
+    "routefinder-extract-stable": [
+      "rm -r extracted",
+      "mkdir -p ./extracted",
+      "cp ./tmp/.gitignore ./extracted/.gitignore",
+      "cd ./tmp && unzip -o ${APP_STABLE}.zip -d ../extracted",
+      "echo \"Extracted\""
+    ],
+    "routefinder-extract-dev": [
+      "rm -r extracted",
+      "mkdir -p ./extracted",
+      "cp ./tmp/.gitignore ./extracted/.gitignore",
+      "cd ./tmp && unzip -o ${APP_REF_TAG}.zip -d ../extracted",
+      "cd ./extracted && mv joomla-cms-${APP_REF_TAG}/* .",
+      "cd ./extracted && rm -r joomla-cms-${APP_REF_TAG}",
+      "echo \"Extracted\""
+    ],
     "routefinder-find": "php ./index.php",
     "routefinder-result": "open ./dist/routes.php",
     "routefinder-all-stable": [
@@ -48,7 +62,7 @@
       "@routefinder-result"
     ],
     "routefinder-all-dev": [
-      "@putenv APP_DEV=5.0.0-beta1",
+      "@putenv APP_REF_TAG=5.0.0-beta1",
       "@routefinder-download-dev",
       "@routefinder-extract-dev",
       "@routefinder-find",

@@ -2,12 +2,22 @@
 .phpunit.cache
 vendor/
 
+# Smoke Tests done for all generated Joomla Web Services Api Endpoints
+!/tests/
+
 # Where the latest archive will be downloaded
-!tmp/
-tmp/*
+!/tmp/
 
 # Extracted source code from latest Joomla! release archive file at the moment its 4.2.2
-!extracted/
-extracted/*
+!/extracted/
+
+# ini file containing Joomla Web Services Api token for Smoke Tests
+!/api-config.dist.ini
+
+# bootstrap file for Smoke Tests.
+!/bootstrap.php
+
+# Route Finder extract Joomla Web Services Routes PHP script
+!/index.php
 
 api-config.ini

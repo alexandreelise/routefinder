@@ -20,17 +20,28 @@
   "autoload": {
     "files": [
       "./bootstrap.php"
-    ]
+    ],
+    "psr-4": {
+      "AlexApi\\Console\\Routefinder\\": "src/AlexApi/Console/Routefinder/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
   },
   "require": {
     "php": "~8.1|~8.2",
-    "joomla/http": "~2.0",
-    "nikic/php-parser": "^4.15",
     "ext-curl": "*",
     "ext-json": "*",
-    "ext-simplexml": "*"
+    "ext-mbstring": "*",
+    "ext-simplexml": "*",
+    "joomla/console": "^2.0",
+    "joomla/http": "~2.0",
+    "nikic/php-parser": "^4.15"
   },
   "require-dev": {
+    "phpbench/phpbench": "^1.2",
     "phpunit/phpunit": "^10.0"
   },
   "scripts": {
@@ -67,7 +78,8 @@
       "@routefinder-extract-dev",
       "@routefinder-find",
       "@routefinder-result"
-    ]
+    ],
+    "routefinder-benchmark": "@php vendor/bin/phpbench run tests/Benchmark/WebServiceRoutesFindCommandBench.php --report=aggregate"
   },
   "scripts-descriptions": {
     "routefinder-download-stable": "Given the version you choose, Joomla 4 and above, download the stable version locally",
@@ -75,6 +87,7 @@
     "routefinder-download-dev": "Given the git tag you choose, e.g. 5.0.0-beta1, download the corresponding version locally",
     "routefinder-extract-dev": "Extract zip archive of specific version of Joomla corresponding to a specific git tag e.g. 5.0.0-beta1",
     "routefinder-find": "Find Joomla Web Services routes by static analysis of the downloaded Joomla source code.",
-    "routefinder-result": "Show final result of Joomla Web Services routes found"
+    "routefinder-result": "Show final result of Joomla Web Services routes found",
+    "routefinder-benchmark": "Benchmark routefinder with phpbench/phpbench composer package"
   }
 }

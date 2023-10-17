@@ -31,13 +31,13 @@
     }
   },
   "require": {
-    "php": "~8.1|~8.2",
+    "php": "^8.1",
     "ext-curl": "*",
     "ext-json": "*",
     "ext-mbstring": "*",
     "ext-simplexml": "*",
-    "joomla/console": "^2.0",
-    "joomla/http": "~2.0",
+    "joomla/console": "^3.0",
+    "joomla/http": "^3.0",
     "nikic/php-parser": "^4.15"
   },
   "require-dev": {
@@ -45,7 +45,7 @@
     "phpunit/phpunit": "^10.0"
   },
   "scripts": {
-    "routefinder-download-stable": "if [ -f ./tmp/${APP_STABLE}.zip ]; then echo \"Already downloaded\" && exit 0; else php -r \"file_put_contents('./tmp/${APP_STABLE}.zip', file_get_contents('https://downloads.joomla.org/fr/cms/joomla4/${APP_STABLE}/Joomla_${APP_STABLE}-Stable-Full_Package.zip'));\" && echo \"Finished download\"; fi",
+    "routefinder-download-stable": "if [ -f ./tmp/${APP_STABLE}.zip ]; then echo \"Already downloaded\" && exit 0; else php -r \"file_put_contents('./tmp/${APP_STABLE}.zip', file_get_contents('https://downloads.joomla.org/fr/cms/joomla5/${APP_STABLE}/Joomla_${APP_STABLE}-Stable-Full_Package.zip'));\" && echo \"Finished download\"; fi",
     "routefinder-download-dev": "if [ -f ./tmp/${APP_REF_TAG}.zip ]; then echo \"Already downloaded\" && exit 0; else php -r \"file_put_contents('./tmp/${APP_REF_TAG}.zip', file_get_contents('https://github.com/joomla/joomla-cms/archive/refs/tags/${APP_REF_TAG}.zip'));\" && echo \"Finished download\"; fi",
     "routefinder-extract-stable": [
       "rm -r extracted",
@@ -66,14 +66,14 @@
     "routefinder-find": "php ./index.php",
     "routefinder-result": "open ./dist/routes.php",
     "routefinder-all-stable": [
-      "@putenv APP_STABLE=4-3-4",
+      "@putenv APP_STABLE=5-0-0",
       "@routefinder-download-stable",
       "@routefinder-extract-stable",
       "@routefinder-find",
       "@routefinder-result"
     ],
     "routefinder-all-dev": [
-      "@putenv APP_REF_TAG=5.0.0-beta1",
+      "@putenv APP_REF_TAG=5.0.0-rc2",
       "@routefinder-download-dev",
       "@routefinder-extract-dev",
       "@routefinder-find",
@@ -82,10 +82,10 @@
     "routefinder-benchmark": "@php vendor/bin/phpbench run tests/Benchmark/WebServiceRoutesFindCommandBench.php --report=aggregate"
   },
   "scripts-descriptions": {
-    "routefinder-download-stable": "Given the version you choose, Joomla 4 and above, download the stable version locally",
+    "routefinder-download-stable": "Given the version you choose, Joomla 5 and above, download the stable version locally",
     "routefinder-extract-stable": "Extract zip archive of stable version of Joomla downloaded",
-    "routefinder-download-dev": "Given the git tag you choose, e.g. 5.0.0-beta1, download the corresponding version locally",
-    "routefinder-extract-dev": "Extract zip archive of specific version of Joomla corresponding to a specific git tag e.g. 5.0.0-beta1",
+    "routefinder-download-dev": "Given the git tag you choose, e.g. 5.0.0-rc2, download the corresponding version locally",
+    "routefinder-extract-dev": "Extract zip archive of specific version of Joomla corresponding to a specific git tag e.g. 5.0.0-rc2",
     "routefinder-find": "Find Joomla Web Services routes by static analysis of the downloaded Joomla source code.",
     "routefinder-result": "Show final result of Joomla Web Services routes found",
     "routefinder-benchmark": "Benchmark routefinder with phpbench/phpbench composer package"

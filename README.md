@@ -3,9 +3,9 @@
 ### WHY ?
 
 I wanted to be able to use what I know best: PHP and Joomla to make a useful tool for the Joomla Developers Community
-and allow more people to grasp the TRUE POWER of Web Services / Api in Joomla 4.x and the upcoming Joomla 5.x.
+and allow more people to grasp the TRUE POWER of Web Services / Api in Joomla 5.x and beyond.
 
-GOAL: Fetch and extract Joomla! 4.x Api Endpoints from source code then generate OpenAPI Schema 3.0.0 out of it.
+GOAL: Fetch and extract Joomla! 5.x and beyond API Endpoints from source code then generate OpenAPI Schema 3.0.0 out of it.
 
 ### HOW ?
 
@@ -47,9 +47,9 @@ composer list
 
 When using **stable mode**:
 
-This composer script will run all the steps necessary for stable version of Joomla. Version if the form of 4-3-4 (with
+This composer script will run all the steps necessary for stable version of Joomla. Version if the form of 5-0-0 (with
 dashes not dots). You can configure which version you want to find Web Services routes for with an environment variable
-in the composer script next the line ``` @putenv APP_STABLE=4-3-4 ```
+in the composer script next the line ``` @putenv APP_STABLE=5-0-0 ```
 
 ```shell
 
@@ -77,7 +77,7 @@ When using **dev mode**:
 
 Almost the same as stable mode but this time, this composer script will run all the steps necessary for git ref tag
 version of Joomla. You can configure which version you want to find Web Services routes for with an environment variable
-in the composer script next the line ``` @putenv APP_REF_TAG=5.0.0-beta1 ```
+in the composer script next the line ``` @putenv APP_REF_TAG=5.0.0-rc2 ```
 
 ```shell
 

@@ -260,14 +260,6 @@ TEXT;
 <?php
 declare(strict_types=1);
 
-/**
- *
- * @author        Mr Alexandre J-S William ELISÉ <code@apiadept.com>
- * @copyright (c) 2009 - present. Mr Alexandre J-S William ELISÉ. All rights reserved.
- * @license       AGPL-3.0-or-later
- * @link          https://apiadept.com
- */
-
 //exported routes
 return $routesExport;
 

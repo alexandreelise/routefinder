@@ -13,7 +13,7 @@
       ]
     }
   },
-  "runner.php_binary": "/usr/bin/php8.2",
+  "runner.php_binary": "/usr/bin/php8.3",
   "runner.php_disable_ini": true,
   "runner.revs": 1000,
   "runner.iterations": 5

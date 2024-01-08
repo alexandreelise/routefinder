@@ -38,7 +38,7 @@
     "ext-simplexml": "*",
     "joomla/console": "^3.0",
     "joomla/http": "^3.0",
-    "nikic/php-parser": "^4.15"
+    "nikic/php-parser": "^v5.0.0"
   },
   "require-dev": {
     "phpbench/phpbench": "^1.2",
@@ -66,14 +66,14 @@
     "routefinder-find": "php ./index.php",
     "routefinder-result": "open ./dist/routes.php",
     "routefinder-all-stable": [
-      "@putenv APP_STABLE=5-0-0",
+      "@putenv APP_STABLE=5-0-1",
       "@routefinder-download-stable",
       "@routefinder-extract-stable",
       "@routefinder-find",
       "@routefinder-result"
     ],
     "routefinder-all-dev": [
-      "@putenv APP_REF_TAG=5.0.0-rc2",
+      "@putenv APP_REF_TAG=5.1.0-alpha2",
       "@routefinder-download-dev",
       "@routefinder-extract-dev",
       "@routefinder-find",
@@ -84,8 +84,8 @@
   "scripts-descriptions": {
     "routefinder-download-stable": "Given the version you choose, Joomla 5 and above, download the stable version locally",
     "routefinder-extract-stable": "Extract zip archive of stable version of Joomla downloaded",
-    "routefinder-download-dev": "Given the git tag you choose, e.g. 5.0.0-rc2, download the corresponding version locally",
-    "routefinder-extract-dev": "Extract zip archive of specific version of Joomla corresponding to a specific git tag e.g. 5.0.0-rc2",
+    "routefinder-download-dev": "Given the git tag you choose, e.g. 5.1.0-alpha2, download the corresponding version locally",
+    "routefinder-extract-dev": "Extract zip archive of specific version of Joomla corresponding to a specific git tag e.g. 5.1.0-alpha2",
     "routefinder-find": "Find Joomla Web Services routes by static analysis of the downloaded Joomla source code.",
     "routefinder-result": "Show final result of Joomla Web Services routes found",
     "routefinder-benchmark": "Benchmark routefinder with phpbench/phpbench composer package"

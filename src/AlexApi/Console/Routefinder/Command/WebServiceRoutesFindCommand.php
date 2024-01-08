@@ -162,7 +162,7 @@ TEXT;
 		$this->output->writeln(sprintf('There is %1$d webservices plugins available at the moment', count($files)));
 		$this->output->writeln(implode(PHP_EOL, array_keys($files)));
 
-		$parser     = (new ParserFactory())->create(ParserFactory::PREFER_PHP7);
+        $parser = (new ParserFactory())->createForNewestSupportedVersion();
 		$nodeFinder = new NodeFinder();
 
 

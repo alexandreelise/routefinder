@@ -11,4 +11,6 @@ ini_set('error_reporting', -1);
 defined('APP_DIRECTORY') || define('APP_DIRECTORY', __DIR__);
 defined('API_CONFIG_INI') || define('API_CONFIG_INI', __DIR__ . '/api-config.ini');
 
+ini_set('memory_limit', '256M');
+
 require_once __DIR__ . '/vendor/autoload.php';
